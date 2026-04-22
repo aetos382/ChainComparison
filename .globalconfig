@@ -17,10 +17,6 @@ csharp_style_expression_bodied_accessors = when_on_single_line
 
 dotnet_style_prefer_conditional_expression_over_assignment = false
 
-csharp_style_expression_bodied_properties = false
-csharp_style_expression_bodied_indexers = false
-csharp_style_expression_bodied_accessors = false
-
 csharp_style_namespace_declarations = file_scoped
 dotnet_separate_import_directive_groups = true
 
