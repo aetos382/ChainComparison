@@ -1,0 +1,12 @@
+/.vs/
+/artifacts/
+bin/
+obj/
+
+*.log
+*.binlog
+
+*.user
+*.local.*
+.env
+

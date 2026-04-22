@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ChainComparison.Tests/ChainComparison.Tests.csproj" />
+  <Project Path="ChainComparison/ChainComparison.csproj" />
+</Solution>
