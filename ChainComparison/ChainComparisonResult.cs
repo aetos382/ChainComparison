@@ -5,9 +5,7 @@ using System.Numerics;
 namespace ChainComparison;
 
 public readonly partial struct ChainComparisonResult<T> :
-    IEquatable<ChainComparisonResult<T>>,
-    IComparable<ChainComparisonResult<T>>,
-    IComparable
+    IEquatable<ChainComparisonResult<T>>
     where T : IComparable<T>
 {
     public ChainComparisonResult(
@@ -60,26 +58,6 @@ public readonly partial struct ChainComparisonResult<T> :
     public override int GetHashCode()
     {
         return this.Result ? 1 : 0;
-    }
-
-    public int CompareTo(ChainComparisonResult<T> other)
-    {
-        return Comparer.SafeCompare(this.RightValue, other.LeftValue);
-    }
-
-    public int CompareTo(object? obj)
-    {
-        if (obj is null)
-        {
-            return int.MaxValue;
-        }
-
-        if (obj is not ChainComparisonResult<T> other)
-        {
-            throw new ArgumentException("Object must be of type ChainComparisonResult<T>.");
-        }
-
-        return this.CompareTo(other);
     }
 
     public static ChainComparisonResult<T> operator ==(ChainComparisonResult<T> left, ChainComparable<T> right)
