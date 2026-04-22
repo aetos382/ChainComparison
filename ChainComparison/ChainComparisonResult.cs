@@ -84,32 +84,32 @@ public readonly partial struct ChainComparisonResult<T> :
 
     public static ChainComparisonResult<T> operator ==(ChainComparisonResult<T> left, ChainComparable<T> right)
     {
-        return Comparer.CreateEqual(left.RightValue, right.Value);
+        return Comparer.CreateEqual(left.RightValue, right.Value, left.Result);
     }
 
     public static ChainComparisonResult<T> operator !=(ChainComparisonResult<T> left, ChainComparable<T> right)
     {
-        return Comparer.CreateInequal(left.RightValue, right.Value);
+        return Comparer.CreateInequal(left.RightValue, right.Value, left.Result);
     }
 
     public static ChainComparisonResult<T> operator >(ChainComparisonResult<T> left, ChainComparable<T> right)
     {
-        return Comparer.CreateGreaterThan(left.RightValue, right.Value);
+        return Comparer.CreateGreaterThan(left.RightValue, right.Value, left.Result);
     }
 
     public static ChainComparisonResult<T> operator <(ChainComparisonResult<T> left, ChainComparable<T> right)
     {
-        return Comparer.CreateLessThan(left.RightValue, right.Value);
+        return Comparer.CreateLessThan(left.RightValue, right.Value, left.Result);
     }
 
     public static ChainComparisonResult<T> operator >=(ChainComparisonResult<T> left, ChainComparable<T> right)
     {
-        return Comparer.CreateGreaterThanOrEqual(left.RightValue, right.Value);
+        return Comparer.CreateGreaterThanOrEqual(left.RightValue, right.Value, left.Result);
     }
 
     public static ChainComparisonResult<T> operator <=(ChainComparisonResult<T> left, ChainComparable<T> right)
     {
-        return Comparer.CreateLessThanOrEqual(left.RightValue, right.Value);
+        return Comparer.CreateLessThanOrEqual(left.RightValue, right.Value, left.Result);
     }
 }
 

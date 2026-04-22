@@ -74,7 +74,7 @@ public readonly partial struct ChainComparable<T> :
 
     public static ChainComparisonResult<T> operator ==(ChainComparable<T> left, ChainComparisonResult<T> right)
     {
-        return Comparer.CreateEqual(left.Value, right.LeftValue);
+        return Comparer.CreateEqual(left.Value, right.LeftValue, right.Result);
     }
 
     public static ChainComparisonResult<T> operator !=(ChainComparable<T> left, ChainComparable<T> right)
@@ -84,7 +84,7 @@ public readonly partial struct ChainComparable<T> :
 
     public static ChainComparisonResult<T> operator !=(ChainComparable<T> left, ChainComparisonResult<T> right)
     {
-        return Comparer.CreateInequal(left.Value, right.LeftValue);
+        return Comparer.CreateInequal(left.Value, right.LeftValue, right.Result);
     }
 
     public static ChainComparisonResult<T> operator >(ChainComparable<T> left, ChainComparable<T> right)
@@ -94,7 +94,7 @@ public readonly partial struct ChainComparable<T> :
 
     public static ChainComparisonResult<T> operator >(ChainComparable<T> left, ChainComparisonResult<T> right)
     {
-        return Comparer.CreateGreaterThan(left.Value, right.LeftValue);
+        return Comparer.CreateGreaterThan(left.Value, right.LeftValue, right.Result);
     }
 
     public static ChainComparisonResult<T> operator <(ChainComparable<T> left, ChainComparable<T> right)
@@ -104,7 +104,7 @@ public readonly partial struct ChainComparable<T> :
 
     public static ChainComparisonResult<T> operator <(ChainComparable<T> left, ChainComparisonResult<T> right)
     {
-        return Comparer.CreateLessThan(left.Value, right.LeftValue);
+        return Comparer.CreateLessThan(left.Value, right.LeftValue, right.Result);
     }
 
     public static ChainComparisonResult<T> operator >=(ChainComparable<T> left, ChainComparable<T> right)
@@ -114,7 +114,7 @@ public readonly partial struct ChainComparable<T> :
 
     public static ChainComparisonResult<T> operator >=(ChainComparable<T> left, ChainComparisonResult<T> right)
     {
-        return Comparer.CreateGreaterThanOrEqual(left.Value, right.LeftValue);
+        return Comparer.CreateGreaterThanOrEqual(left.Value, right.LeftValue, right.Result);
     }
 
     public static ChainComparisonResult<T> operator <=(ChainComparable<T> left, ChainComparable<T> right)
@@ -124,7 +124,7 @@ public readonly partial struct ChainComparable<T> :
 
     public static ChainComparisonResult<T> operator <=(ChainComparable<T> left, ChainComparisonResult<T> right)
     {
-        return Comparer.CreateLessThanOrEqual(left.Value, right.LeftValue);
+        return Comparer.CreateLessThanOrEqual(left.Value, right.LeftValue, right.Result);
     }
 }
 
