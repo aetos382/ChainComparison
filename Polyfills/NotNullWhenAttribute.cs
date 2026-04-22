@@ -4,8 +4,9 @@ using Microsoft.CodeAnalysis;
 
 namespace System.Diagnostics.CodeAnalysis;
 
+[AttributeUsage(AttributeTargets.Parameter)]
 [Embedded]
-[AttributeUsage(AttributeTargets.Parameter, Inherited = false)]
+[ExcludeFromCodeCoverage]
 internal sealed class NotNullWhenAttribute(bool returnValue) :
     Attribute
 {

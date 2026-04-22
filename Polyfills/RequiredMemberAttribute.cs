@@ -4,12 +4,12 @@ using Microsoft.CodeAnalysis;
 
 namespace System.Runtime.CompilerServices;
 
-[Embedded]
 [AttributeUsage(
     AttributeTargets.Class |
     AttributeTargets.Field |
     AttributeTargets.Property |
     AttributeTargets.Struct)]
+[Embedded]
 internal sealed class RequiredMemberAttribute : Attribute;
 
 #endif

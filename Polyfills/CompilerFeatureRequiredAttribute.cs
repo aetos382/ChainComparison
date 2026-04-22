@@ -1,11 +1,14 @@
 #if !NET7_0_OR_GREATER
 
+using System.Diagnostics.CodeAnalysis;
+
 using Microsoft.CodeAnalysis;
 
 namespace System.Runtime.CompilerServices;
 
-[Embedded]
 [AttributeUsage(AttributeTargets.All)]
+[Embedded]
+[ExcludeFromCodeCoverage]
 internal sealed class CompilerFeatureRequiredAttribute(string featureName) :
     Attribute
 {

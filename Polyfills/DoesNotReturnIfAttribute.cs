@@ -6,6 +6,7 @@ namespace System.Diagnostics.CodeAnalysis;
 
 [AttributeUsage(AttributeTargets.Parameter)]
 [Embedded]
+[ExcludeFromCodeCoverage]
 internal sealed class DoesNotReturnIfAttribute(bool parameterValue) :
     Attribute
 {

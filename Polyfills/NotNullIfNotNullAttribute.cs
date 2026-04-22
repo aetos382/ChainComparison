@@ -9,6 +9,7 @@ namespace System.Diagnostics.CodeAnalysis;
     AttributeTargets.Property |
     AttributeTargets.ReturnValue)]
 [Embedded]
+[ExcludeFromCodeCoverage]
 internal sealed class NotNullIfNotNullAttribute(string parameterName) :
     Attribute
 {
