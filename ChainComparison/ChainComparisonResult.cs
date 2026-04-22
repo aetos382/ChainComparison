@@ -76,7 +76,7 @@ public readonly partial struct ChainComparisonResult<T> :
 
         if (obj is not ChainComparisonResult<T> other)
         {
-            throw new ArgumentException();
+            throw new ArgumentException("Object must be of type ChainComparisonResult<T>.");
         }
 
         return this.CompareTo(other);

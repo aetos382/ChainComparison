@@ -33,7 +33,7 @@ public readonly partial struct ChainComparable<T> :
 
         if (obj is not ChainComparable<T> other)
         {
-            throw new ArgumentException();
+            throw new ArgumentException("Object must be of type ChainComparable<T>.");
         }
 
         return this.CompareTo(other);
