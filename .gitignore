@@ -5,6 +5,7 @@ obj/
 
 *.log
 *.binlog
+*.coverage
 
 *.user
 *.local.*
