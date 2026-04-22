@@ -71,7 +71,7 @@ public sealed class ChainComparisonTests
     [DataRow(1, 3, 2, false)]  // 右辺失敗（短絡評価）
     public void 小なり演算子_右辺がChainComparisonResult(int a, int b, int c, bool expected)
     {
-        Assert.AreEqual(expected, a < (b.ToChainComparable() < c));
+        Assert.AreEqual(expected, a.ToChainComparable() < (b.ToChainComparable() < c));
     }
 
     [TestMethod]
