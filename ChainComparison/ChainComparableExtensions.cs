@@ -1,8 +1,8 @@
 using System;
 
-namespace ChainComparison.Tests;
+namespace ChainComparison;
 
-internal static class ChainComparableExtensions
+public static class ChainComparableExtensions
 {
     public static ChainComparable<T> ToChainComparable<T>(this T value)
         where T : IComparable<T>
