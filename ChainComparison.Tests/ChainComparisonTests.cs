@@ -64,6 +64,63 @@ public sealed class ChainComparisonTests
         Assert.AreEqual(expected, a.ToChainComparable() != b != c);
     }
 
+    // 右辺に ChainComparisonResult を取る演算子（a [op] (b [op] c) の形）
+    [TestMethod]
+    [DataRow(1, 2, 3, true)]
+    [DataRow(3, 2, 3, false)]  // 左辺失敗、右辺 true
+    [DataRow(1, 3, 2, false)]  // 右辺失敗（短絡評価）
+    public void 小なり演算子_右辺がChainComparisonResult(int a, int b, int c, bool expected)
+    {
+        Assert.AreEqual(expected, a < (b.ToChainComparable() < c));
+    }
+
+    [TestMethod]
+    [DataRow(1, 2, 3, true)]
+    [DataRow(1, 1, 2, true)]   // 右辺の前が等値
+    [DataRow(3, 2, 3, false)]  // 左辺失敗、右辺 true
+    [DataRow(1, 3, 2, false)]  // 右辺失敗（短絡評価）
+    public void 小なりイコール演算子_右辺がChainComparisonResult(int a, int b, int c, bool expected)
+    {
+        Assert.AreEqual(expected, a.ToChainComparable() <= (b.ToChainComparable() <= c));
+    }
+
+    [TestMethod]
+    [DataRow(3, 2, 1, true)]
+    [DataRow(1, 2, 1, false)]  // 左辺失敗、右辺 true
+    [DataRow(3, 1, 2, false)]  // 右辺失敗（短絡評価）
+    public void 大なり演算子_右辺がChainComparisonResult(int a, int b, int c, bool expected)
+    {
+        Assert.AreEqual(expected, a.ToChainComparable() > (b.ToChainComparable() > c));
+    }
+
+    [TestMethod]
+    [DataRow(3, 2, 1, true)]
+    [DataRow(3, 3, 1, true)]   // 右辺の前が等値
+    [DataRow(1, 2, 1, false)]  // 左辺失敗、右辺 true
+    [DataRow(3, 1, 2, false)]  // 右辺失敗（短絡評価）
+    public void 大なりイコール演算子_右辺がChainComparisonResult(int a, int b, int c, bool expected)
+    {
+        Assert.AreEqual(expected, a.ToChainComparable() >= (b.ToChainComparable() >= c));
+    }
+
+    [TestMethod]
+    [DataRow(1, 1, 1, true)]
+    [DataRow(2, 1, 1, false)]  // 左辺失敗、右辺 true
+    [DataRow(1, 1, 2, false)]  // 右辺失敗（短絡評価）
+    public void 等値演算子_右辺がChainComparisonResult(int a, int b, int c, bool expected)
+    {
+        Assert.AreEqual(expected, a.ToChainComparable() == (b.ToChainComparable() == c));
+    }
+
+    [TestMethod]
+    [DataRow(1, 2, 3, true)]
+    [DataRow(2, 2, 3, false)]  // 左辺失敗、右辺 true
+    [DataRow(1, 2, 2, false)]  // 右辺失敗（短絡評価）
+    public void 非等値演算子_右辺がChainComparisonResult(int a, int b, int c, bool expected)
+    {
+        Assert.AreEqual(expected, a.ToChainComparable() != (b.ToChainComparable() != c));
+    }
+
     [TestMethod]
     public void 小なり演算子_中間値がラップされていなくても正しく評価される()
     {
