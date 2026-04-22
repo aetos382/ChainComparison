@@ -1,11 +1,12 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 
 namespace ChainComparison;
 
-public readonly partial struct ChainComparisonResult<T> :
-    IEquatable<ChainComparisonResult<T>>
+// ChainComparisonResult は値として扱われることを意図していない
+#pragma warning disable CS0660, CS0661, CA1815
+
+public readonly partial struct ChainComparisonResult<T>
     where T : IComparable<T>
 {
     public ChainComparisonResult(
@@ -35,29 +36,6 @@ public readonly partial struct ChainComparisonResult<T> :
     public static bool operator false(ChainComparisonResult<T> result)
     {
         return !result.Result;
-    }
-
-    /// <inheritdoc />
-    public bool Equals(ChainComparisonResult<T> other)
-    {
-        return this.Result == other.Result;
-    }
-
-    /// <inheritdoc />
-    public override bool Equals([NotNullWhen(true)] object? obj)
-    {
-        if (obj is not ChainComparisonResult<T> other)
-        {
-            return false;
-        }
-
-        return this.Equals(other);
-    }
-
-    /// <inheritdoc />
-    public override int GetHashCode()
-    {
-        return this.Result ? 1 : 0;
     }
 
     public static ChainComparisonResult<T> operator ==(ChainComparisonResult<T> left, ChainComparable<T> right)
@@ -94,6 +72,7 @@ public readonly partial struct ChainComparisonResult<T> :
 #if NET7_0_OR_GREATER
 
 #pragma warning disable IDE0040
+
 partial struct ChainComparisonResult<T> :
     IComparisonOperators<ChainComparisonResult<T>, ChainComparable<T>, ChainComparisonResult<T>>;
 
