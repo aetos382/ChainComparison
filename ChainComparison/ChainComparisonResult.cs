@@ -6,6 +6,8 @@ namespace ChainComparison;
 // ChainComparisonResult は値として扱われることを意図していない
 #pragma warning disable CS0660, CS0661, CA1815
 
+// IComparisonOperators が allows ref struct 対応したら ref struct にするかも
+// https://github.com/dotnet/runtime/issues/103605
 public readonly partial struct ChainComparisonResult<T>
     where T : IComparable<T>
 {
