@@ -74,6 +74,6 @@ public sealed class ChainComparableTests
     public void オブジェクトCompareTo_異なる型はArgumentExceptionをスローする()
     {
         Assert.ThrowsExactly<ArgumentException>(
-            () => new ChainComparable<int>(1).CompareTo("1"));
+            static () => new ChainComparable<int>(1).CompareTo("1"));
     }
 }
